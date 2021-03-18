@@ -9,7 +9,6 @@
 
 ## Version
 #### VERSION 0.0.1 IS OUT!! IT IS VERY LAGGY, AS IT IS BETA, BUT FEEL FREE TO USE IT! ALSO LET ME KNOW ABOUT ERRORS AND BUGS! 
-> **NOTE:** Pip isn't installed yet, so it isn't an offical module. You have to fork it to use it.
 
 --- 
 
