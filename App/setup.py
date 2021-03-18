@@ -1,20 +1,20 @@
 from setuptools import setup
-
+ 
 #reeee
 
 with open("README.md", "r") as fh:
   long_description = fh.read()
 
 setup(
-  name = "Main",
+  name = "REPLAPI",
   version = "0.0.1",
   description = "REPLAPI Module",
   long_description = long_description,
   long_description_content_type = "text/markdown",
-  author = "JBYT27",
-  author_email = "Your email",#pypi account
+  author = "darkdarcool30",
+  author_email = "darkdarcool@gmail.com",#pypi account
 #To find more licenses or classifiers go to: https://pypi.org/classifiers/
-  license = "GNU General Public License v3 (GPLv3)",
+  license = "MIT",
   packages=['REPLAPI'],
   classifiers = [
   "Programming Language :: Python :: 3",

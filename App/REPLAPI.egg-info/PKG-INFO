@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: REPLAPI
+Version: 0.0.1
+Summary: REPLAPI Module
+Home-page: UNKNOWN
+Author: darkdarcool30
+Author-email: darkdarcool@gmail.com
+License: MIT
+Description: # REPLAPI - Module
+        ##### Replit stats module
+        #### By @JBYT27 & @darkdarcool
+        
+        ## About the module
+        #### This module is based off of @RayhanADev's [github repository](https://github.com/RayhanADev/REPLAPI.it), it was and looked really amazing, so I decided to make a version of that in Python. (sry for ping ray) So that's what i'm doing now! (btw ray, its replit.com, not repl.it ;))
+        
+        --- 
+        
+        ## Version
+        #### VERSION 0.0.1 IS OUT!! IT IS VERY LAGGY, AS IT IS BETA, BUT FEEL FREE TO USE IT! ALSO LET ME KNOW ABOUT ERRORS AND BUGS! 
+        > **NOTE:** Pip isn't installed yet, so it isn't an offical module. You have to fork it to use it.
+        
+        --- 
+        
+        ## Contributing
+        #### This is mostly a project with me and darkdarcool, so it's okay for now. However, testers are appreciated, so if you would like to test, pls let us know in the comments!
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
