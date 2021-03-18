@@ -11,9 +11,8 @@ setup(
   description = "REPLAPI Module",
   long_description = long_description,
   long_description_content_type = "text/markdown",
-  url = "",
   author = "JBYT27",
-  author_email = "Your email",
+  author_email = "Your email",#pypi account
 #To find more licenses or classifiers go to: https://pypi.org/classifiers/
   license = "GNU General Public License v3 (GPLv3)",
   packages=['REPLAPI'],
