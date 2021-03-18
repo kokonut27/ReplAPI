@@ -1,16 +1,21 @@
-# a module, so i dont need os and time module like i usually do - edit, nvm, i do need os module, but for smth else
-import requests, os
+import requests, os, json
 from bs4 import BeautifulSoup
 
 
-while True:
+
+  response = requests.get(f"https://replit.com/@{owner}/", headers = {"User-Agent": "Mozilla/2.0"})
+  soup = BeautifulSoup(response.text, 'html.parser')
+
+  cont = response.json()
+  print(cont)
+
+
+def replit_user():
   try:
     owner = os.environ['REPL_OWNER']
-    response = requests.get(f"https://replit.com/@{owner}/", headers = {"User-Agent": "Mozilla/2.0"})
-
-    soup = BeautifulSoup(response.text, 'html.parser')
-
-    
+    return owner
   except:
-    exit("Error: There is no such replit account")
-    #in this case, you will probably never have this error, because you will be able to view it, but just in case ;)
+    exit("ERROR: No such replit account exists!")
+    #in this case, you will probably never have this error, because you will be able to view it, but just in case.
+
+def version():
