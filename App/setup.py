@@ -11,8 +11,8 @@ setup(
   description = "REPLAPI Module",
   long_description = long_description,
   long_description_content_type = "text/markdown",
-  author = "darkdarcool30",
-  author_email = "darkdarcool@gmail.com",#pypi account
+  author = "JBYT27",
+  author_email = "darkdarcool@gmail.com",#email
 #To find more licenses or classifiers go to: https://pypi.org/classifiers/
   license = "MIT",
   packages=['REPLAPI'],
