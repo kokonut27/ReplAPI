@@ -10,11 +10,11 @@ While it is a little laggy and has some glitches, it is currently on PYPI for in
 
 [This is the link](https://pypi.org/project/REPLAPI/).
 # Installation
-|Manager          |Command                                       |
-|:----------------|:---------------------------------------------|
+|Manager          |Command                                        |
+|:----------------|:----------------------------------------------|
 |**pip**          |`pip install REPLAPI`                          |
 |**poetry**       |`python -m poetry add REPLAPI`                 |
-|**Repl.it**      |Search `REPLAPI`|
+|**Repl.it**      |Search `REPLAPI` in the package tab            |
 
 # Contibuting
 
