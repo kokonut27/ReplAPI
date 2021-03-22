@@ -37,13 +37,14 @@ def replit_langs(name = None):
     print("ERROR: You didn't fill out the name parameter!")
   else:
     try:
-      apilink = 'thttps://replit-user-api.pyer.repl.co/get?user=' + name#lots of thanks to @pyer
+      apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name# the link was wrong, i switched it
       api = requests.get(apilink)
       data = eval(api.text)
       sun = data['langs']
+      sun = ', '.join(sun)
       return sun
     except:
-      print("ERROR: Cannot find " + name + "'s posts")
+      print("ERROR: Cannot find " + name + "'s langs")
 
 def replit_name(name = None):
   if name == None:
@@ -72,16 +73,7 @@ def replit_bio(name = None):
       print("ERROR: Cannot find " + name + "'s bio!")
 
 def version():
-  print("VERSION: 0.0.1")
+  print("VERSION: 0.0.2")#we're heading onto next version!
 
 
-#make loading thing next version
-
-'''
-l = replit_bio("darkdarcool")
-print(f"My bio is {l}")
-l = replit_cycles("darkdarcool")
-print(f"I have {l} cycles!")
-l = replit_name("darkdarcool")
-print(f"My nickname is {l}")
-'''
+#how to make loading?
