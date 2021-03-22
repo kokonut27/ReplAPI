@@ -90,7 +90,9 @@ class replapi():
     print("VERSION: 0.0.2")#we're heading onto next version!
 
   def owners():
-    print("OWNERS:\nMain Owner: JBYT27\nSide Owner: darkdarcool")#added another function
+    print("OWNERS:\nMain Owner: JBYT27\nSide Owner(wierd sidekick): darkdarcool")#added another functiond
+
 
 
 #how to make loading?
+# idk
