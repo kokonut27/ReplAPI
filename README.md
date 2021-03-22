@@ -14,7 +14,7 @@ While it is a little laggy and has some glitches, it is currently on PYPI for in
 |:----------------|:---------------------------------------------|
 |**pip**          |`pip install REPLAPI`                          |
 |**poetry**       |`python -m poetry add REPLAPI`                 |
-|**Repl.it**      |Search `REPLAPI`|     |
+|**Repl.it**      |Search `REPLAPI`|
 
 # Contibuting
 
