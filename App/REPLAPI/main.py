@@ -21,7 +21,7 @@ def replit_user():
 
 def replit_cycles(name = None):
   if name == None:
-    print("ERROR: You didn't fill out the name parameter!")
+    exit("ERROR: You didn't fill out the name parameter!")
   else:
     try:
       apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name#lots of thanks to @pyer
@@ -30,11 +30,11 @@ def replit_cycles(name = None):
       sun = data['cycles']
       return sun
     except:
-      print("ERROR: Cannot find " + name + "'s cycles.")
+      exit("ERROR: Cannot find " + name + "'s cycles!")
 
 def replit_langs(name = None):
   if name == None:
-    print("ERROR: You didn't fill out the name parameter!")
+    exit("ERROR: You didn't fill out the name parameter!")
   else:
     try:
       apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name# the link was wrong, i switched it
@@ -44,11 +44,11 @@ def replit_langs(name = None):
       sun = ', '.join(sun)
       return sun
     except:
-      print("ERROR: Cannot find " + name + "'s langs")
+      exit("ERROR: Cannot find " + name + "'s langs!")
 
 def replit_name(name = None):
   if name == None:
-    print("ERROR: You didn't fill out the name parameter!")
+    exit("ERROR: You didn't fill out the name parameter!")
   else:
     try:
       apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name#lots of thanks to @pyer
@@ -57,11 +57,11 @@ def replit_name(name = None):
       sun = data['name']
       return sun
     except:
-      print("ERROR: Cannot find " + name + "'s name!")
+      exit("ERROR: Cannot find " + name + "'s name!")
 
 def replit_bio(name = None):
   if name == None:
-    print("ERROR: You didn't fill out the name parameter!")
+    exit("ERROR: You didn't fill out the name parameter!")
   else:
     try:
       apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name#lots of thanks to @pyer
@@ -70,10 +70,26 @@ def replit_bio(name = None):
       sun = data['bio']
       return sun
     except:
-      print("ERROR: Cannot find " + name + "'s bio!")
+      exit("ERROR: Cannot find " + name + "'s bio!")
+
+def replit_example(name = None):
+  if name == None:
+    exit("ERROR: You didn't fill out the name parameter!")
+  else:
+    try:
+      apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name
+      api = requests.get(apilink)
+      data = eval(api.text)
+      var = data['example']
+      return var
+    except:
+      exit("ERROR: Cannot find "+ name+"'s example!")
 
 def version():
   print("VERSION: 0.0.2")#we're heading onto next version!
+
+def owners():
+  print("OWNERS:\nMain Owner: JBYT27\nSide Owner: darkdarcool")#added another function
 
 
 #how to make loading?
