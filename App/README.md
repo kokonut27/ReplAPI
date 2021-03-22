@@ -1,9 +1,21 @@
-# REPLAPI - Module
+# REPLAPI Module
 ##### Replit stats module
-#### By @JBYT27 & @darkdarcool
+#### Made by @JBYT27 & @darkdarcool
 
-## About the module
-#### This module is based off of @RayhanADev's [github repository](https://github.com/RayhanADev/REPLAPI.it), it was and looked really amazing, so I decided to make a version of that in Python. (sry for ping ray) So that's what i'm doing now! (btw ray, its replit.com, not repl.it ;))
+--- 
+
+## About module
+#### Welcome to the REPLAPI module! (pronounced "rep"-"l"-"a"-"p"-"i")
+
+#### This module allows you to access info (not personal) from all over replit. This would include:
++ Username & Nickname
++ Bio
++ Cycles/Karma
++ Common langs
++ Posts and comments (coming soon)
+
+#### It is currently accessible on PYPI, but it may have bugs. 
+###### [This is the link](https://pypi.org/project/REPLAPI/)
 
 --- 
 
@@ -13,4 +25,4 @@
 --- 
 
 ## Contributing
-#### This is mostly a project with me and darkdarcool, so it's okay for now. However, testers are appreciated, so if you would like to test, pls let us know in the comments!
+#### As we won't exactly invite you into the project, feel free to leave pull requests, and we'll review them, whether or not we merge them. ;D
