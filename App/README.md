@@ -1,6 +1,6 @@
 # REPLAPI Module
 ##### Replit stats module
-#### Made by @JBYT27 & @darkdarcool
+#### Made by [@JBYT27](github.com/JBYT27) & [@darkdarcool](github.com/darkdarcool)
 
 --- 
 
