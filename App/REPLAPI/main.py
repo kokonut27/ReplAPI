@@ -1,5 +1,5 @@
 import requests, os, json
-# from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 
 
 '''
@@ -73,18 +73,20 @@ class replapi():
       except:
         exit("ERROR: Cannot find " + name + "'s bio!")
 
-  def replit_example(name = None):
+  def replit_posts(name = None):
     if name == None:
       exit("ERROR: You didn't fill out the name parameter!")
     else:
       try:
-        apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name
-        api = requests.get(apilink)
-        data = eval(api.text)
-        var = data['example']
-        return var
+        post = requests.get("https://replit/@"+name+"?tab=posts")
+        soup = BeautifulSoup(post.content, 'html.parser')
+        html1 = soup.find("div", {"class":"jsx-2329710370 board-post-list-item-post-title"})
+        html2 = str(html1)
+        a = html1.replace('<div class="jsx-2329710370 board-post-list-item-post-title">','')
+        b = a.replace('</div>','')
+        return b
       except:
-        exit("ERROR: Cannot find "+ name+"'s example!")
+        exit("ERROR: Cannot find "+ name+"'s latest post!")
 
   def version():
     print("VERSION: 0.0.2")#we're heading onto next version!
