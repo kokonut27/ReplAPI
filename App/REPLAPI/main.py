@@ -87,6 +87,36 @@ class replapi():
         return b
       except:
         exit("ERROR: Cannot find "+ name+"'s latest post!")
+  
+  def replit_comments(name = None):
+    if name == None:
+      exit("ERROR: You didn't fill out the name parameter!")
+    else:
+      try:
+        post = requests.get("https://replit/@"+name+"?tab=comments")
+        soup = BeautifulSoup(post.content, 'html.parser')
+        html1 = soup.find("div", {"class":"rendered-markdown jsx-4279741890"})
+        try:
+          a = html1.find('a')
+          b = a.get('href')
+         except:
+          exit("ERROR: Linking is not working!")
+        
+        html2 = str(html1)
+        r = html2.replace('<div class="rendered-markdown jsx-4279741890"><p>',
+                          '')
+        try:
+          x = r.replace('<span class="jsx-589677836 user-hover-card user-hover-card-inline">'
+                            '<a href="'+oop1+'">','')
+        except:
+          exit("ERROR: Span linking not working!")
+        
+        s = x.replace('</a></span>','')
+        abc = s.replace('</p></div>','')
+        return abc
+      
+      except:
+        exit("ERROR: Cannot find "+ name+"'s latest comment!") 
 
   def version():
     print("VERSION: 0.0.2")#we're heading onto next version!
