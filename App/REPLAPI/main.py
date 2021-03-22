@@ -126,5 +126,4 @@ class replapi():
 
 
 
-#how to make loading?
-# idk
+# I don't think we need a loading animation, I think that we just have it right, all we really need it to help the compile time, and the user can define the loading animation
