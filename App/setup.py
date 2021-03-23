@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
   long_description = fh.read()
 setup(
   name = "REPLAPI",
-  version = "0.0.2",
+  version = "0.0.3",
   description = "REPLAPI Module",
   long_description = long_description,
   long_description_content_type = "text/markdown",

@@ -140,7 +140,3 @@ class info():
 
   def owners():
     print("OWNERS:\nMain Owner: JBYT27\nSide Owner(weird sidekick): darkdarcool")
-
-
-a = replit_comments("darkdarcool")
-print(a)
