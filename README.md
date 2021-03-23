@@ -73,3 +73,5 @@ So this is the `REPLAPI module`! We hope you guys enjoy using this module. Pleas
 
 Special thanks to @RayhanADev for inspiring and helping with this project!
 ###### sry for pings lol
+
+[This is the docs link](https://ReplAPI-Docs.darkdarcool.repl.co)
