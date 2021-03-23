@@ -1,5 +1,7 @@
 import requests, os, json
+os.system("pip install beautifulsoup4")
 from bs4 import BeautifulSoup
+import string
 
 
 '''
@@ -11,8 +13,7 @@ from bs4 import BeautifulSoup
 '''
 
 
-class replapi():
-  def replit_user():
+def replit_user():
     try:
       owner = os.environ['REPL_OWNER']
       return owner
@@ -20,7 +21,7 @@ class replapi():
       exit("ERROR: No such replit account exists!")
       #in this case, you will probably never have this error, because you will be able to view it, but just in case.
 
-  def replit_cycles(name = None):
+def replit_cycles(name = None):
     if name == None:
       exit("ERROR: You didn't fill out the name parameter!")
     else:
@@ -33,7 +34,7 @@ class replapi():
       except:
         exit("ERROR: Cannot find " + name + "'s cycles!")
 
-  def replit_langs(name = None):
+def replit_langs(name = None):
     if name == None:
       exit("ERROR: You didn't fill out the name parameter!")
     else:
@@ -47,7 +48,7 @@ class replapi():
       except:
         exit("ERROR: Cannot find " + name + "'s langs!")
 
-  def replit_name(name = None):
+def replit_name(name = None):
     if name == None:
       exit("ERROR: You didn't fill out the name parameter!")
     else:
@@ -60,7 +61,7 @@ class replapi():
       except:
         exit("ERROR: Cannot find " + name + "'s name!")
 
-  def replit_bio(name = None):
+def replit_bio(name = None):
     if name == None:
       exit("ERROR: You didn't fill out the name parameter!")
     else:
@@ -73,57 +74,73 @@ class replapi():
       except:
         exit("ERROR: Cannot find " + name + "'s bio!")
 
-  def replit_posts(name = None):
+def replit_post(name = None):#latest post
     if name == None:
       exit("ERROR: You didn't fill out the name parameter!")
     else:
+      #user = os.environ["REPL_OWNER"]
       try:
-        post = requests.get("https://replit/@"+name+"?tab=posts")
+        post = requests.get("https://replit.com/@"+ name +"?tab=posts")#name
         soup = BeautifulSoup(post.content, 'html.parser')
-        html1 = soup.find("div", {"class":"jsx-2329710370 board-post-list-item-post-title"})
-        html2 = str(html1)
-        a = html1.replace('<div class="jsx-2329710370 board-post-list-item-post-title">','')
-        b = a.replace('</div>','')
-        return b
+        html1 = soup.find("div", {"class":"jsx-2329710370 board-post-list-item-post-title"}).get_text()
+        return html1
+        #b = a.replace('</div>','')
+        #return b
       except:
-        exit("ERROR: Cannot find "+ name+"'s latest post!")
+       exit("ERROR: Cannot find "+ name+"'s latest post!")
   
-  def replit_comments(name = None):
+def replit_posts(name = None):#all posts
     if name == None:
       exit("ERROR: You didn't fill out the name parameter!")
     else:
       try:
-        post = requests.get("https://replit/@"+name+"?tab=comments")
+        post = requests.get("https://replit.com/@"+ name +"?tab=posts")#name
         soup = BeautifulSoup(post.content, 'html.parser')
-        html1 = soup.find("div", {"class":"rendered-markdown jsx-4279741890"})
-        try:
-          a = html1.find('a')
-          b = a.get('href')
-         except:
-          exit("ERROR: Linking is not working!")
-        
-        html2 = str(html1)
-        r = html2.replace('<div class="rendered-markdown jsx-4279741890"><p>',
-                          '')
-        try:
-          x = r.replace('<span class="jsx-589677836 user-hover-card user-hover-card-inline">'
-                            '<a href="'+oop1+'">','')
-        except:
-          exit("ERROR: Span linking not working!")
-        
-        s = x.replace('</a></span>','')
-        abc = s.replace('</p></div>','')
-        return abc
-      
+        html1 = soup.find_all("div", {"class":"jsx-2329710370 board-post-list-item-post-title"})#.get_text()
+        all_text = []
+        for i in html1:
+          all_text.append(i.get_text())
+        return '\n'.join(all_text)
+        #return html1
+        #b = a.replace('</div>','')
+        #return b
+      except:
+       exit("ERROR: Cannot find "+ name+"'s posts!")
+  
+def replit_comment(name = None):
+  if name == None:
+      exit("ERROR: You didn't fill out the name parameter!")
+  else:
+      try:
+        post = requests.get("https://replit.com/@" + name + "?tab=comments")
+        soup = BeautifulSoup(post.content, 'html.parser')
+        for data in soup.find("p"):
+          return (data.get_text())
+          break # keep this here so it prints once
       except:
         exit("ERROR: Cannot find "+ name+"'s latest comment!") 
-
+  
+def replit_comments(name = None):
+    if name == None:
+      exit("ERROR: You didn't fill out the name parameter!")
+    else:
+      try:
+        post = requests.get("https://replit.com/@" + name + "?tab=comments")
+        soup = BeautifulSoup(post.content, 'html.parser')
+        all_text = []
+        for data in soup.find_all("p"):
+          all_text.append(data.get_text())
+        return '\n'.join(all_text)
+      except:
+        exit("ERROR: Cannot find "+name+"'s comments!")
+        
+class info(): 
   def version():
     print("VERSION: 0.0.2")#we're heading onto next version!
 
   def owners():
-    print("OWNERS:\nMain Owner: JBYT27\nSide Owner(weird sidekick): darkdarcool")#added another function lol
+    print("OWNERS:\nMain Owner: JBYT27\nSide Owner(weird sidekick): darkdarcool")
 
 
-
-# I don't think we need a loading animation, I think that we just have it right, all we really need it to help the compile time, and the user can define the loading animation
+a = replit_comments("darkdarcool")
+print(a)
