@@ -1,7 +1,6 @@
 import requests, os, json
 os.system("pip install beautifulsoup4")
 from bs4 import BeautifulSoup
-import string
 
 
 '''
