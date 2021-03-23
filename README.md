@@ -1,4 +1,9 @@
 # REPLAPI Module
+<img style="float: right;" src="https://user-images.githubusercontent.com/66882633/112184565-b7a0dd80-8bd5-11eb-938a-4451d3207091.png"></img>
+
+            
+
+
 ##### Inspired by @RayhanADev and made in python
 ##### Made by @JBYT27(@JBloves27) & @darkdarcool
 ###### ~~Note the lots of pings lol~~
@@ -68,3 +73,5 @@ So this is the `REPLAPI module`! We hope you guys enjoy using this module. Pleas
 
 Special thanks to @RayhanADev for inspiring and helping with this project!
 ###### sry for pings lol
+
+[This is the docs link](https://ReplAPI-Docs.darkdarcool.repl.co)
