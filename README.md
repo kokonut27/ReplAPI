@@ -1,4 +1,9 @@
 # REPLAPI Module
+<img style="float: center>
+            ![favicon](https://user-images.githubusercontent.com/66882633/112184565-b7a0dd80-8bd5-11eb-938a-4451d3207091.png)
+            
+
+
 ##### Inspired by @RayhanADev and made in python
 ##### Made by @JBYT27(@JBloves27) & @darkdarcool
 ###### ~~Note the lots of pings lol~~
