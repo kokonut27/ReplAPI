@@ -3,7 +3,7 @@
 
             
 ##### Inspired by [@RayhanADev](https://github.com/RayhanADev) and made in python
-##### Made by [@JBYT27](github.com/JBYT27) & [@darkdarcool](github.com/darkdarcool) .
+##### Made by [@JBYT27](https://github.com/JBYT27) & [@darkdarcool](https://github.com/darkdarcool) .
 
 --- 
 
