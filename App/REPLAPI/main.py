@@ -1,9 +1,6 @@
 import requests, os, json, requests
 os.system("pip install beautifulsoup4")
 from bs4 import BeautifulSoup
-#username = os.environ["REPL_OWNER"]
-#import heapq
-#import io
 
 def replit_user():
     try:
@@ -17,16 +14,15 @@ def replit_avatar(name = None):
   if name == None:
     exit("ERROR: You didn't fill out the name parameter!")
   else:
-    try:    
-        apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name#lots of thanks to @pyer
-        api = requests.get(apilink)
-        data = eval(api.text)
-        sun = data['pfp']
-        add_data = sun
-        return add_data
+    try:   
+      apilink = ('https://replit-user-api.pyer.repl.co/get?user=' + name)
+      api = requests.get(apilink)
+      data = eval(api.text)
+      sun = data['pfp']
+      coverstuff = sun
+      return coverstuff    
     except:
-      exit("ERROR: Cannot find " + name + "'s avatar!")
-
+     exit("ERROR: Cannot find " + name + "'s avatar!")
 def replit_cycles(name = None):
     if name == None:
       exit("ERROR: You didn't fill out the name parameter!")
@@ -144,4 +140,3 @@ class info():
 
   def owners():
     print("OWNERS:\nMain Owner: JBYT27\nSide Owner(weird sidekick): darkdarcool")
-print(replit_avatar("darkdarcool"))
