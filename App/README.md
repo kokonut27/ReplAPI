@@ -12,7 +12,7 @@
 + Bio
 + Cycles/Karma
 + Common langs
-+ Posts and comments (coming soon)
++ Posts and comments
 
 #### It is currently accessible on PYPI, but it may have bugs. 
 ###### [This is the link](https://pypi.org/project/REPLAPI/)
@@ -20,7 +20,7 @@
 --- 
 
 ## Version
-#### VERSION 0.0.1 IS OUT!! IT IS VERY LAGGY, AS IT IS BETA, BUT FEEL FREE TO USE IT! ALSO LET ME KNOW ABOUT ERRORS AND BUGS! 
+#### VERSION 0.0.3 IS OUT!! IT IS VERY LAGGY, AS IT IS BETA, BUT FEEL FREE TO USE IT! ALSO LET ME KNOW ABOUT ERRORS AND BUGS! 
 
 --- 
 

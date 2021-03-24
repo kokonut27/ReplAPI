@@ -126,7 +126,7 @@ def replit_comments(name = None):
         
 class info(): 
   def version():
-    print("VERSION: 0.0.2")#we're heading onto next version!
+    print("VERSION: 0.0.3")#we're heading onto next version!
 
   def owners():
     print("OWNERS:\nMain Owner: JBYT27\nSide Owner(weird sidekick): darkdarcool")
