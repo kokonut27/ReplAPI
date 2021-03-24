@@ -3,7 +3,7 @@
 
             
 ##### Inspired by [@RayhanADev](https://github.com/RayhanADev) and made in python
-##### Made by [@JBYT27](github.com/JBYT27)(<a href = "replit.com/@JBloves27">@JBloves27</a> on replit!) & [@darkdarcool](github.com/darkdarcool) on git and <a href = "replit.com/@darkdarcool">@darkdarcool</a> on replit!
+##### Made by [@JBYT27](github.com/JBYT27) & [@darkdarcool](github.com/darkdarcool) .
 
 --- 
 
