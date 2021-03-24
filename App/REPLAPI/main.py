@@ -14,7 +14,7 @@ def replit_user():
     except:
       exit("ERROR: No such replit account exists!")
       #in this case, you will probably never have this error, because you will be able to view it, but just in case.
-
+# SPECIAL THANKS TO PYER FOR THE JSON READER!
 def replit_avatar(name = None):
   if name == None:
     exit("ERROR: You didn't fill out the name parameter!")
