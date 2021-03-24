@@ -1,9 +1,9 @@
-import requests, os, json
+import requests, os, json, requests
 os.system("pip install beautifulsoup4")
 from bs4 import BeautifulSoup
 username = os.environ["REPL_OWNER"]
-#e
-
+import heapq
+import io
 def replit_user():
     try:
       owner = os.environ['REPL_OWNER']
@@ -11,6 +11,20 @@ def replit_user():
     except:
       exit("ERROR: No such replit account exists!")
       #in this case, you will probably never have this error, because you will be able to view it, but just in case.
+
+def replit_avatar(name = None):
+  if name == None:
+    exit("ERROR: You didn't fill out the name parameter!")
+  else:
+    try:    
+        apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name#lots of thanks to @pyer
+        api = requests.get(apilink)
+        data = eval(api.text)
+        sun = data['pfp']
+        add_data = sun
+        return add_data
+    except:
+      exit("ERROR: Cannot find " + name + "'s avatar!")
 
 def replit_cycles(name = None):
     if name == None:
@@ -92,9 +106,7 @@ def replit_posts(name = None):#all posts
         for i in html1:
           all_text.append(i.get_text())
         return '\n'.join(all_text)
-        #return html1
-        #b = a.replace('</div>','')
-        #return b
+        
       except:
        exit("ERROR: Cannot find "+ name+"'s posts!")
   
@@ -131,3 +143,4 @@ class info():
 
   def owners():
     print("OWNERS:\nMain Owner: JBYT27\nSide Owner(weird sidekick): darkdarcool")
+print(replit_avatar("darkdarcool"))
