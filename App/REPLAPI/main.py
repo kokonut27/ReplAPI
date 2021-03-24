@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 #import heapq
 #import io
 
+version = "0.0.3" # Easy-Access
+
 def replit_user():
     try:
       owner = os.environ['REPL_OWNER']
@@ -140,7 +142,7 @@ def replit_comments(name = None):
         
 class info(): 
   def version():
-    print("VERSION: 0.0.3")#we're heading onto next version!
+    print("VERSION: "+version)#we're heading onto next version!
 
   def owners():
     print("OWNERS:\nMain Owner: JBYT27\nSide Owner(weird sidekick): darkdarcool")
