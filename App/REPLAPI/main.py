@@ -1,9 +1,10 @@
 import requests, os, json, requests
 os.system("pip install beautifulsoup4")
 from bs4 import BeautifulSoup
-username = os.environ["REPL_OWNER"]
-import heapq
-import io
+#username = os.environ["REPL_OWNER"]
+#import heapq
+#import io
+
 def replit_user():
     try:
       owner = os.environ['REPL_OWNER']
