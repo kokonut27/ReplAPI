@@ -1,6 +1,8 @@
 import requests, os, json
 os.system("pip install beautifulsoup4")
 from bs4 import BeautifulSoup
+import string
+import re
 
 
 '''
@@ -132,10 +134,27 @@ def replit_comments(name = None):
         return '\n'.join(all_text)
       except:
         exit("ERROR: Cannot find "+name+"'s comments!")
+
+def replit_profile_pic(name=None):
+  if name is None:
+	  exit('ERROR: You didnt fill out the name parameter!')
+  else:
+	  try:
+		  req = requests.get('https://replit.com/@'+name)
+		  soup = BeautifulSoup(req.content, 'html.parser')
+		  element =  soup.find(class_='jsx-2410840271 profile-icon profile-icon-xl')['style']
+		  print(element)
+		  url =  re.findall('(\(.+?)\)', element)
+	  except Exception as e:
+		  print(e)
+		  exit('ERROR: Could not find specified person\'s name.')
         
 class info(): 
   def version():
     print("VERSION: 0.0.2")#we're heading onto next version!
 
   def owners():
-    print("OWNERS:\nMain Owner: JBYT27\nSide Owner(weird sidekick): darkdarcool")
+    print("OWNERS:\nMain Owner: JBYT27\nSide Owner(weird sidekick): darkdarcool\n The best one: LAMAQDAHODWALA")
+
+if __name__ == '__main__':
+	print(replit_profile('LAMAQDAHODWALA'))
