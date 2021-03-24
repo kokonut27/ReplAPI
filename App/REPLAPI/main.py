@@ -12,12 +12,12 @@ def replit_user():
       owner = os.environ['REPL_OWNER']
       return owner
     except:
-      exit("ERROR: No such replit account exists!")
+      raise Error("ERROR: No such replit account exists!")
       #in this case, you will probably never have this error, because you will be able to view it, but just in case.
 # SPECIAL THANKS TO PYER FOR THE JSON READER!
 def replit_avatar(name = None):
   if name == None:
-    exit("ERROR: You didn't fill out the name parameter!")
+    raise Error("ERROR: You didn't fill out the name parameter!")
   else:
     try:   
       apilink = ('https://replit-user-api.pyer.repl.co/get?user=' + name)
@@ -27,10 +27,10 @@ def replit_avatar(name = None):
       coverstuff = sun
       return coverstuff    
     except:
-     exit("ERROR: Cannot find " + name + "'s avatar!")
+     raise Error("ERROR: Cannot find " + name + "'s avatar!")
 def replit_cycles(name = None):
     if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
+      raise Error("ERROR: You didn't fill out the name parameter!")
     else:
       try:
         apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name#lots of thanks to @pyer
@@ -39,11 +39,11 @@ def replit_cycles(name = None):
         sun = data['cycles']
         return sun
       except:
-        exit("ERROR: Cannot find " + name + "'s cycles!")
+        raise Error("ERROR: Cannot find " + name + "'s cycles!")
 
 def replit_langs(name = None):
     if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
+      raise Error("ERROR: You didn't fill out the name parameter!")
     else:
       try:
         apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name# the link was wrong, i switched it
@@ -53,11 +53,11 @@ def replit_langs(name = None):
         sun = ', '.join(sun)
         return sun
       except:
-        exit("ERROR: Cannot find " + name + "'s langs!")
+        raise Error("ERROR: Cannot find " + name + "'s langs!")
 
 def replit_name(name = None):
     if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
+      raise Error("ERROR: You didn't fill out the name parameter!")
     else:
       try:
         apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name#lots of thanks to @pyer
@@ -66,11 +66,11 @@ def replit_name(name = None):
         sun = data['name']
         return sun
       except:
-        exit("ERROR: Cannot find " + name + "'s name!")
+        raise Error("ERROR: Cannot find " + name + "'s name!")
 
 def replit_bio(name = None):
     if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
+      raise Error("ERROR: You didn't fill out the name parameter!")
     else:
       try:
         apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name#lots of thanks to @pyer
@@ -79,11 +79,11 @@ def replit_bio(name = None):
         sun = data['bio']
         return sun
       except:
-        exit("ERROR: Cannot find " + name + "'s bio!")
+        raise Error("ERROR: Cannot find " + name + "'s bio!")
 
 def replit_post(name = None):#latest post
     if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
+      raise Error("ERROR: You didn't fill out the name parameter!")
     else:
       #user = os.environ["REPL_OWNER"]
       try:
@@ -94,11 +94,11 @@ def replit_post(name = None):#latest post
         #b = a.replace('</div>','')
         #return b
       except:
-       exit("ERROR: Cannot find "+ name+"'s latest post!")
+       raise Error("ERROR: Cannot find "+ name+"'s latest post!")
   
 def replit_posts(name = None):#all posts
     if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
+      raise Error("ERROR: You didn't fill out the name parameter!")
     else:
       try:
         post = requests.get("https://replit.com/@"+ name +"?tab=posts")#name
@@ -110,11 +110,11 @@ def replit_posts(name = None):#all posts
         return '\n'.join(all_text)
         
       except:
-       exit("ERROR: Cannot find "+ name+"'s posts!")
+       raise Error("ERROR: Cannot find "+ name+"'s posts!")
   
 def replit_comment(name = None):
   if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
+      raise Error("ERROR: You didn't fill out the name parameter!")
   else:
       try:
         post = requests.get("https://replit.com/@" + name + "?tab=comments")
@@ -123,11 +123,11 @@ def replit_comment(name = None):
           return (data.get_text())
           break # keep this here so it prints once
       except:
-        exit("ERROR: Cannot find "+ name+"'s latest comment!") 
+        raise Error("ERROR: Cannot find "+ name+"'s latest comment!") 
   
 def replit_comments(name = None):
     if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
+      raise Error("ERROR: You didn't fill out the name parameter!")
     else:
       try:
         post = requests.get("https://replit.com/@" + name + "?tab=comments")
@@ -137,5 +137,5 @@ def replit_comments(name = None):
           all_text.append(data.get_text())
         return '\n'.join(all_text)
       except:
-        exit("ERROR: Cannot find "+name+"'s comments!")
+        raise Error("ERROR: Cannot find "+name+"'s comments!")
         
