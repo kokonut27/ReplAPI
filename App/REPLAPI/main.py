@@ -1,7 +1,12 @@
 import requests, os, json, requests
 os.system("pip install beautifulsoup4")
 from bs4 import BeautifulSoup
+class info(): 
+  def version():
+    print("VERSION: 0.0.3")#we're heading onto next version!
 
+  def owners():
+    print("OWNERS:\nMain Owner: JBYT27\nSide Owner(weird sidekick): darkdarcool")
 def replit_user():
     try:
       owner = os.environ['REPL_OWNER']
@@ -134,9 +139,3 @@ def replit_comments(name = None):
       except:
         exit("ERROR: Cannot find "+name+"'s comments!")
         
-class info(): 
-  def version():
-    print("VERSION: 0.0.3")#we're heading onto next version!
-
-  def owners():
-    print("OWNERS:\nMain Owner: JBYT27\nSide Owner(weird sidekick): darkdarcool")
