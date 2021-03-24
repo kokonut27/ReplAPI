@@ -1,16 +1,7 @@
 import requests, os, json
 os.system("pip install beautifulsoup4")
 from bs4 import BeautifulSoup
-
-
-'''
-  response = requests.get(f"https://replit.com/@{owner}/", headers = {"User-Agent": "Mozilla/2.0"})
-  soup = BeautifulSoup(response.text, 'html.parser')
-
-  cont = response.json()
-  print(cont)
-'''
-
+username = os.environ["REPL_OWNER"]
 
 def replit_user():
     try:
