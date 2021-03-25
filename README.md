@@ -1,7 +1,4 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
+[![GitHub stars](https://img.shields.io/github/stars/Naereen/StrapDown.js.svg?style=social&label=Star&maxAge=2592000)](https://github.com/JBYT27/REPLAPI/stargazers)
 
 
 <p align="center">
@@ -12,8 +9,9 @@
 
 
             
-##### Inspired by [@RayhanADev](https://github.com/RayhanADev) and made in python
-##### Made by [@JBYT27](https://github.com/JBYT27) & [@darkdarcool](https://github.com/darkdarcool) .
+<h5>Inspired by <a href = "https://github.com/RayhanADev">@RayhanADev</a> and made in python</h5>
+
+<h5>Made by <a href = "https://github.com/JBYT27">@JBYT27</a> & <a href = "https://github.com/darkdarcool">@darkdarcool</a><h5>
 
 ---
 
