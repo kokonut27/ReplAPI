@@ -1,6 +1,3 @@
-[![GitHub stars](https://img.shields.io/github/stars/Naereen/StrapDown.js.svg?style=social&label=Star&maxAge=2592000)](https://github.com/JBYT27/REPLAPI/stargazers)
-
-
 <p align="center">
   <a href="https://github.com/JBYT27/REPLAPI">
     <img src="/logo.png" alt="Logo">
@@ -24,8 +21,8 @@
 |**Repl.it**      | Search `REPLAPI` in the package tab and add it |     
 
 
-# KTHXBAI!!!!!!!!
+<h1>KTHXBAI!!!!!!!!</h1>
 
-Special thanks to [@RayhanADev](https://github.com/RayhanADev) for inspiring and helping with this project!
+Special thanks to <a href = "https://github.com/RayhanADev">@RayhanADev</a> for inspiring and helping with this project!
 
-### **[This is the docs link](https://ReplAPI-Docs.darkdarcool.repl.co)**
+<h3><strong><a href = "https://ReplAPI-Docs.darkdarcool.repl.co">This is the docs link</a></strong></h3>
