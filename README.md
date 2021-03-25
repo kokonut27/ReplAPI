@@ -1,8 +1,11 @@
 # REPLAPI Module
 
-<p style = "align: center;">
-   <img src = "logo.png"
+<p align="center">
+  <a href="https://github.com/JBYT27/REPLAPI">
+    <img src="/logo.png" alt="Logo">
+  </a>
 </p>
+
 
             
 ##### Inspired by [@RayhanADev](https://github.com/RayhanADev) and made in python
