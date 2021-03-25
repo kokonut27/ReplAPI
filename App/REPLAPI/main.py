@@ -1,43 +1,94 @@
-import requests, os, json, requests
-os.system("pip install beautifulsoup4")
+import requests, os, json, repltalk, asyncio, getpass
 from bs4 import BeautifulSoup
+
 class info(): 
   def version():
-    print("VERSION: 0.0.3")#we're heading onto next version!
+    print("VERSION: 0.0.3")
 
   def owners():
     print("OWNERS:\nMain Owner: JBYT27\nSide Owner(weird sidekick): darkdarcool")
+
+class assets(): 
+  async def replit_avatar_get(name = None):
+    if (name == None):
+      exit("Please fill out the name parameter!")
+    else:
+      try:
+        client = repltalk.Client()
+        user = await client.get_user(name)
+        return user.avatar
+      except:
+        exit(f"ERROR: Cannot load {name}'s avatar!") 
+  async def replit_cycle_get(name = None):
+    if (name == None):
+      exit("Please fill out the name parameter!")
+    else:
+      try:
+        client = repltalk.Client()
+        user = await client.get_user(name)
+        return user.cycles
+      except:
+        exit(f"ERROR: Cannot load {name}'s cycles!")
+  async def replit_name_get(name = None):
+    if (name == None):
+      exit("Please fill out the name parameter!")
+    else:
+      try:
+        client = repltalk.Client()
+        user = await client.get_user(name)
+        return user.full_name
+      except:
+        exit(f"ERROR: Cannot load {name}'s name!")
+  async def replit_bio_get(name = None):
+    if (name == None):
+      exit("Please fill out the name parameter!")
+    else:
+      try:
+        client = repltalk.Client()
+        user = await client.get_user(name)
+        return user.bio
+      except:
+        exit(f"ERROR: Cannot load {name}'s bio!")
 def replit_user():
     try:
       owner = os.environ['REPL_OWNER']
       return owner
     except:
       exit("ERROR: No such replit account exists!")
-      #in this case, you will probably never have this error, because you will be able to view it, but just in case.
-# SPECIAL THANKS TO PYER FOR THE JSON READER!
 def replit_avatar(name = None):
-  if name == None:
-    exit("ERROR: You didn't fill out the name parameter!")
+  if (name == None):
+    exit("Please fill out the name parameter!")
   else:
-    try:   
-      apilink = ('https://replit-user-api.pyer.repl.co/get?user=' + name)
-      api = requests.get(apilink)
-      data = eval(api.text)
-      sun = data['pfp']
-      coverstuff = sun
-      return coverstuff    
+    try:
+      e = asyncio.run(assets.replit_avatar_get(f"{name}"))
+      return e
     except:
-     exit("ERROR: Cannot find " + name + "'s avatar!")
+      exit(f"ERROR: Cannot find {name}'s avatar!")
+def replit_bio(name = None):
+  if (name == None):
+    exit("Please fill out the name parameter!")
+  else:
+    try:
+      e = asyncio.run(assets.replit_bio_get(f"{name}"))
+      return e
+    except:
+      exit(f"ERROR: Cannot find {name}'s bio!")
+def replit_name(name = None):
+  if (name == None):
+    exit("Please fill out the name parameter!")
+  else:
+    try:
+      e = asyncio.run(assets.replit_name_get(f"{name}"))
+      return e
+    except:
+      exit(f"ERROR: Cannot find {name}'s name!")
 def replit_cycles(name = None):
     if name == None:
       exit("ERROR: You didn't fill out the name parameter!")
     else:
       try:
-        apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name#lots of thanks to @pyer
-        api = requests.get(apilink)
-        data = eval(api.text)
-        sun = data['cycles']
-        return sun
+        e = asyncio.run(assets.replit_cycle_get(f"{name}"))
+        return e
       except:
         exit("ERROR: Cannot find " + name + "'s cycles!")
 
@@ -46,40 +97,22 @@ def replit_langs(name = None):
       exit("ERROR: You didn't fill out the name parameter!")
     else:
       try:
-        apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name# the link was wrong, i switched it
-        api = requests.get(apilink)
-        data = eval(api.text)
-        sun = data['langs']
-        sun = ', '.join(sun)
-        return sun
+        link = requests.get('https://replit.com/data/profiles/' +name )
+        data = link.json()
+        #print(data)
+        els = list(data.items())
+        all = els[-2]
+        all = list(all)
+        stuff = all[1]
+        stuff = str(stuff)
+        stuff = stuff.replace("'", "")
+        stuff = stuff.replace("[", "")
+        stuff = stuff.replace("]", "")
+        stuff = stuff.replace(" ", "")
+        li = list(stuff.split(","))
+        return (li)
       except:
         exit("ERROR: Cannot find " + name + "'s langs!")
-
-def replit_name(name = None):
-    if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
-    else:
-      try:
-        apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name#lots of thanks to @pyer
-        api = requests.get(apilink)
-        data = eval(api.text)
-        sun = data['name']
-        return sun
-      except:
-        exit("ERROR: Cannot find " + name + "'s name!")
-
-def replit_bio(name = None):
-    if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
-    else:
-      try:
-        apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name#lots of thanks to @pyer
-        api = requests.get(apilink)
-        data = eval(api.text)
-        sun = data['bio']
-        return sun
-      except:
-        exit("ERROR: Cannot find " + name + "'s bio!")
 
 def replit_post(name = None):#latest post
     if name == None:
@@ -94,7 +127,7 @@ def replit_post(name = None):#latest post
         #b = a.replace('</div>','')
         #return b
       except:
-       exit("ERROR: Cannot find "+ name+"'s latest post!")
+       exit("ERROR: Cannot find "+ name+"'s hottest post!")
   
 def replit_posts(name = None):#all posts
     if name == None:
@@ -110,7 +143,7 @@ def replit_posts(name = None):#all posts
         return '\n'.join(all_text)
         
       except:
-       exit("ERROR: Cannot find "+ name+"'s posts!")
+        exit("ERROR: Cannot find "+ name+"'s posts!")
   
 def replit_comment(name = None):
   if name == None:
@@ -123,7 +156,7 @@ def replit_comment(name = None):
           return (data.get_text())
           break # keep this here so it prints once
       except:
-        exit("ERROR: Cannot find "+ name+"'s latest comment!") 
+        exit("ERROR: Cannot find "+ name+"'s hottest comment!") 
   
 def replit_comments(name = None):
     if name == None:
@@ -138,4 +171,3 @@ def replit_comments(name = None):
         return '\n'.join(all_text)
       except:
         exit("ERROR: Cannot find "+name+"'s comments!")
-        

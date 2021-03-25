@@ -6,6 +6,12 @@ with open("README.md", "r") as fh:
   long_description = fh.read()
 setup(
   name = "REPLAPI",
+  install_requires=[
+        'bs4',
+        'repltalk',
+        # other requirements
+  ],
+  url = "https://github.com/JBYT27/REPLAPI",
   version = "0.0.3",
   description = "REPLAPI Module",
   long_description = long_description,

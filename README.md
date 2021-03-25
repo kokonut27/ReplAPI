@@ -9,7 +9,7 @@
 
 ## Installation
 
-|Manager          |Command                                         |
+|Manage          |Command                                         |
 |:----------------|:-----------------------------------------------|
 |**pip**          | `pip install REPLAPI`                          |
 |**poetry**       | `python -m poetry add REPLAPI`                 |
