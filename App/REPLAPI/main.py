@@ -3,6 +3,9 @@ from bs4 import BeautifulSoup
 import string
 import re
 
+import aiohttp
+import asyncio
+
 
 '''
   response = requests.get(f"https://replit.com/@{owner}/", headers = {"User-Agent": "Mozilla/2.0"})
@@ -160,12 +163,34 @@ class User():
         print(e)
         exit('ERROR: Could not find specified person\'s name.')
         
+
+class AsyncUser():
+	def __init__(self, name):
+		self.name = name
+		self.sess = aiohttp.ClientSession()
+		self.apilink = 'https://replit-user-api.pyer.repl.co/get?user=' + name#lots of thanks to @pyer
+		if self.name == '':
+			raise EnvironmentError('You didnt fill out the "name" parameter')
+	async def replit_cycles(self):
+		try:
+			async with self.sess.get(self.apilink) as resp:
+				data = eval(resp.text)
+				cycles = data['cycles']
+				return await cycles
+		except Exception:
+			exit('ERROR: Cannot find name', 1)
+		
+	async def replit_langs(self):
+
+	
+  
+
 class info(): 
   def version():
     print("VERSION: 0.0.2")#we're heading onto next version!
 
   def owners():
-    print("OWNERS:\nMain Owner: JBYT27\nSide Owner(weird sidekick): darkdarcool\n The best one: LAMAQDAHODWALA")
+    print("OWNERS:\nMain Owner: JBYT27\nSide Owne`r(weird sidekick): darkdarcool\n The best one: LAMAQDAHODWALA")
 
 if __name__ == '__main__':
 	print(replit_avatar('LAMAQDAHODWALA'))
