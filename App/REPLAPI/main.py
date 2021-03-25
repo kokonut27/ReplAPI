@@ -117,7 +117,7 @@ class User():
           #b = a.replace('</div>','')
           #return b
         except:
-        exit("ERROR: Cannot find "+ name+"'s posts!")
+        	exit("ERROR: Cannot find "+ name+"'s posts!")
     
   def replit_comment(self):
       name = self.name
