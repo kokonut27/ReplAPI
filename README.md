@@ -1,5 +1,8 @@
 # REPLAPI Module
-![favicon](https://user-images.githubusercontent.com/66882633/112184565-b7a0dd80-8bd5-11eb-938a-4451d3207091.png)
+
+<p style = "align: center;">
+   <img src = "https://user-images.githubusercontent.com/66882633/112184565-b7a0dd80-8bd5-11eb-938a-4451d3207091.png"
+</p>
 
             
 ##### Inspired by [@RayhanADev](https://github.com/RayhanADev) and made in python
