@@ -13,16 +13,15 @@
 ---
 
 <h1 align = "center">Installation</h1>
+<center>
 
-<p align = "center">
-  
-|Manage          |Command                                         |
-|:----------------|:-----------------------------------------------|
-|**pip**          | `pip install REPLAPI`                          |
-|**poetry**       | `python -m poetry add REPLAPI`                 |
-|**Repl.it**      | Search `REPLAPI` in the package tab and add it |  
+|Manager          |Command                                        |
+|:----------------|:----------------------------------------------|
+|**pip**          |$`pip install REPLAPI`                         |
+|**poetry**       |`python -m poetry add REPLAPI`                 |
+|**Repl.it**      |Search `REPLAPI` in the package tab and add it.|     
 
-</p>
+</center>
 
 <h1 align = "center">KTHXBAI!!!!!!!!</h1>
 
