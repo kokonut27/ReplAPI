@@ -6,23 +6,26 @@
 
 
             
-<h5>Inspired by <a href = "https://github.com/RayhanADev">@RayhanADev</a> and made in python</h5>
+<h3 align = "center">Inspired by <a href = "https://github.com/RayhanADev">@RayhanADev</a> and made in python</h3>
 
-<h5>Made by <a href = "https://github.com/JBYT27">@JBYT27</a> & <a href = "https://github.com/darkdarcool">@darkdarcool</a><h5>
+<h3 align = "center">Made by <a href = "https://github.com/JBYT27">@JBYT27</a> & <a href = "https://github.com/darkdarcool">@darkdarcool</a><h3>
 
 ---
 
-## Installation
+<h1 align = "center">Installation</h1>
 
+<p align = "center">
+  
 |Manage          |Command                                         |
 |:----------------|:-----------------------------------------------|
 |**pip**          | `pip install REPLAPI`                          |
 |**poetry**       | `python -m poetry add REPLAPI`                 |
-|**Repl.it**      | Search `REPLAPI` in the package tab and add it |     
+|**Repl.it**      | Search `REPLAPI` in the package tab and add it |  
 
+</p>
 
-<h1>KTHXBAI!!!!!!!!</h1>
+<h1 align = "center">KTHXBAI!!!!!!!!</h1>
 
 Special thanks to <a href = "https://github.com/RayhanADev">@RayhanADev</a> for inspiring and helping with this project!
 
-<h3><strong><a href = "https://ReplAPI-Docs.darkdarcool.repl.co">This is the docs link</a></strong></h3>
+<h3 align = "center"><strong><a href = "https://ReplAPI-Docs.darkdarcool.repl.co">This is the docs link</a></strong></h3>
