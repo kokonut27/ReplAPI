@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: REPLAPI
+Version: 0.0.6
+Summary: REPLAPI Module
+Home-page: https://github.com/JBYT27/REPLAPI
+Author: darkdarcool30
+Author-email: darkdarcool@gmail.com
+License: MIT
+Description: # REPLAPI Module
+        ##### Replit stats module
+        #### Made by [@JBYT27](github.com/JBYT27) & [@darkdarcool](github.com/darkdarcool)
+        
+        --- 
+        
+        ## About module
+        #### Welcome to the REPLAPI module! (pronounced "rep"-"l"-"a"-"p"-"i")
+        
+        #### This module allows you to access info (not personal) from all over replit. This would include:
+        + Username & Nickname
+        + Bio
+        + Cycles/Karma
+        + Common langs
+        + Posts and comments
+        
+        #### It is currently accessible on PYPI, but it may have bugs. 
+        ###### [This is the link](https://pypi.org/project/REPLAPI/)
+        
+        --- 
+        
+        ## Version
+        #### VERSION 0.0.3 IS OUT!! IT IS VERY LAGGY, AS IT IS BETA, BUT FEEL FREE TO USE IT! ALSO LET ME KNOW ABOUT ERRORS AND BUGS! 
+        
+        --- 
+        
+        ## Contributing
+        #### As we won't exactly invite you into the project, feel free to leave pull requests, and we'll review them, whether or not we merge them. ;D
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
