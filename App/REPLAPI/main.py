@@ -91,11 +91,16 @@ def replit_cycles(name = None):
         return e
       except:
         exit("ERROR: Cannot find " + name + "'s cycles!")
-
-def replit_langs(name = None):
+def replit_langs(name = None, extra = None):
+    sun = 0
     if name == None:
       exit("ERROR: You didn't fill out the name parameter!")
     else:
+      if (extra == None):
+        pass
+      else:
+        if (extra == "all"):
+          sun = 1
       try:
         link = requests.get('https://replit.com/data/profiles/' +name )
         data = link.json()
@@ -114,6 +119,9 @@ def replit_langs(name = None):
         stuff = stuff.replace("]", "")
         stuff = stuff.replace(" ", "")
         li = list(stuff.split(","))
+        if (sun == 1):
+          sun = 2
+          return li, sun
         return (li)
       except:
         exit("ERROR: Cannot find " + name + "'s langs!")
