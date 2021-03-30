@@ -101,7 +101,11 @@ def replit_langs(name = None):
         data = link.json()
         #print(data)
         els = list(data.items())
-        all = els[-2]
+        all = els[-1]
+        if ("hacker" in all):
+          all = els[-2]
+        if ("isTeam" in all):
+          all = els[-1]
         all = list(all)
         stuff = all[1]
         stuff = str(stuff)
@@ -171,3 +175,4 @@ def replit_comments(name = None):
         return '\n'.join(all_text)
       except:
         exit("ERROR: Cannot find "+name+"'s comments!")
+print(replit_langs("Coder100"))
