@@ -27,3 +27,6 @@
 <p align = "center">Special thanks to <a href = "https://github.com/RayhanADev">@RayhanADev</a> for inspiring and helping with this project!</p>
 
 <h3 align = "center"><strong><a href = "https://ReplAPI-Docs.darkdarcool.repl.co">This is the docs link</a></strong></h3>
+
+--- 
+wats wrong with markdown lol
