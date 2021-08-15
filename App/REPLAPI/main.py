@@ -98,7 +98,7 @@ def replit_cycles(name = None):
       exit("ERROR: You didn't fill out the name parameter!")
     else:
       try:
-        e = asyncio.run(assets.replit_cycle_get(f"{name}"))
+        e = requests.get('https://repldata.ch1ck3n.repl.co/cycles/' + name).text
         return e
       except:
         exit("ERROR: Cannot find " + name + "'s cycles!")
