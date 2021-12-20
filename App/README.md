@@ -1,28 +1,29 @@
-# REPLAPI Module
-##### Replit stats module
-#### Made by [@JBYT27](github.com/JBYT27) & [@darkdarcool](github.com/darkdarcool)
+<p align="center">
+  <a href="https://github.com/JBYT27/REPLAPI">
+    <img src="/logo.png" alt="Logo">
+  </a>
+</p>
 
---- 
+<h3 align = "center">Made by <a href = "https://github.com/JBYT27">@JBYT27</a> & <a href = "https://github.com/darkdarcool">@darkdarcool</a><h3>
 
-## About module
-#### Welcome to the REPLAPI module! (pronounced "rep"-"l"-"a"-"p"-"i")
+---
 
-#### This module allows you to access info (not personal) from all over replit. This would include:
-+ Username & Nickname
-+ Bio
-+ Cycles/Karma
-+ Common langs
-+ Posts and comments
+<h1 align = "center">Installation</h1>
+<center align = "center">
 
-#### It is currently accessible on PYPI, but it may have bugs. 
-###### [This is the link](https://pypi.org/project/REPLAPI/)
+|Manager          |Command                                        |
+|:----------------|:----------------------------------------------|
+|**pip**          |$`pip install REPLAPI`                         |
+|**poetry**       |`python -m poetry add REPLAPI`                 |
+|**Repl.it**      |Search `REPLAPI` in the package tab and add it.|     
 
---- 
+</center>
+<h1 align = "center">Contibuting</h1>
 
-## Version
-#### VERSION 0.0.3 IS OUT!! IT IS VERY LAGGY, AS IT IS BETA, BUT FEEL FREE TO USE IT! ALSO LET ME KNOW ABOUT ERRORS AND BUGS! 
+<p align = "center">If you want to contribute to `REPLAPI`, please leave and issue or pull request! We will always(jk lol) do our best to get to it(or get to it at some point). We won't invite you to the repo, or the repl, but we ❤️ your contributions to the project! If you plan on making your own replapi, please don't fork out project and start there(or just plain plagerize). Please build it from the ground up! We will star it project and help you if you ever need it!
 
---- 
+<h1 align = "center">KTHXBAI!!!!!!!!</h1>
 
-## Contributing
-#### As we won't exactly invite you into the project, feel free to leave pull requests, and we'll review them, whether or not we merge them. ;D
+<p align = "center">Special thanks to <a href = "https://github.com/RayhanADev">@RayhanADev</a> for inspiring and helping with this project!</p>
+
+<h3 align = "center"><strong><a href = "https://ReplAPI-Docs.darkdarcool.repl.co">This is the docs link</a></strong></h3>
