@@ -1,268 +1,319 @@
-import requests, os, json, repltalk, asyncio, getpass, sys
-from bs4 import BeautifulSoup
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import requests
+import json  # thx
+import random
+import os
+# os.system("clear") # CLEAR IT UP YO
 
 
-class info(): 
-  def version():
-    print("VERSION: 0.0.6")
 
-  def owners():
-    print("OWNERS:\nMain Owner: JBYT27\nSide Owner(weird sidekick): darkdarcool")
+'''
+wtf is this
+╭━━━━━╮
+╰┃ ┣▇━▇
+ ┃ ┃  ╰━▅╮
+ ╰┳╯ ╰━━┳╯ memedog says this is pog
+  ╰╮ ┳━━╯
+ ▕▔▋ ╰╮╭━╮
+╱▔╲▋╰━┻┻╮╲╱▔▔▔╲
+▏  ▔▔▔▔▔▔▔  O O┃
+╲╱▔╲▂▂▂▂╱▔╲▂▂▂╱
+ ▏╳▕▇▇▕ ▏╳▕▇▇▕
+ ╲▂╱╲▂╱ ╲▂╱╲▂╱\
+'''
 
 
-class assets():
-  async def replit_avatar_get(name = None):
-    if (name == None):
-      exit("ERROR: Please fill out the name parameter!")
-    else:
-      try:
-        client = repltalk.Client()
-        user = await client.get_user(name)
-        return user.avatar
-      except:
-        exit(f"ERROR: Cannot load {name}'s avatar!") 
-  async def replit_cycle_get(name = None):
-    if (name == None):
-      exit("ERROR: Please fill out the name parameter!")
-    else:
-      try:
-        client = repltalk.Client()
-        user = await client.get_user(name)
-        return user.cycles
-      except:
-        exit(f"ERROR: Cannot load {name}'s cycles!")
-  async def replit_name_get(name = None):
-    if (name == None):
-      exit("ERROR: Please fill out the name parameter!")
-    else:
-      try:
-        client = repltalk.Client()
-        user = await client.get_user(name)
-        return user.full_name
-      except:
-        exit(f"ERROR: Cannot load {name}'s name!")
-  async def replit_bio_get(name = None):
-    if (name == None):
-      exit("ERROR: Please fill out the name parameter!")
-    else:
-      try:
-        client = repltalk.Client()
-        user = await client.get_user(name)
-        return user.bio
-      except:
-        exit(f"ERROR: Cannot load {name}'s bio!")
-  async def replit_leaderboard_get():
-      #try:
-        client = repltalk.Client()
-        leaderboard = await client.get_leaderboard(limit=10)
-        return leaderboard#, sep="\n"
-      #except:
-       # exit(f"ERROR: Cannot load leaderboard!")
+ROLES = """
+	id
+	name
+	key
+	tagline
+"""
+ORGANIZATION = """	
+	id
+	name
+	country
+	postalCode
+	state
+	city
+	timeCreated
+"""
+SUBSCRIPTION = """
+	id
+	planId
+	quantity
+	timeCreated
+"""
+BOARD = """
+	id
+	name
+	color
+	description
+"""
+LANGUAGE = """
+	id
+	key
+	displayName
+	tagline
+	icon
+	category
+"""
+USER = f"""
+	id
+	fullName
+  firstName
+  lastName
+	username
+	image
+	bio
+	karma
+	isHacker
+	timeCreated
+  isBannedFromBoards
+	roles {{
+					{ROLES}
+				}}
+	organization {{
+					{ORGANIZATION}
+	}}
+"""
+REPL = f"""
+	id
+	url
+	title
+	description
+	timeCreated
+	size
+	imageUrl
+	isPrivate
+	isAlwaysOn
+  user {{
+					{USER}
+	}}
+	lang {{
+					{LANGUAGE}
+	}}
+	origin {{
+					url
+	}}
+"""
+COMMENT = f"""
+	id
+	body
+	timeCreated
+	url
+	isAnswer
+	voteCount
+	canVote
+	hasVoted
+	post {{
+					id
+	}}
+  user {{
+					{USER}
+	}}
+"""
+REPL_COMMENT = f"""
+	id
+	body
+	timeCreated
+	
+	repl {{
+					{REPL}
+	}}
+"""
+POST = f"""
+	id
+	title
+	body
+	url
+	commentCount
+	isHidden
+	isPinned
+	isLocked
+	isAnnouncement
+	timeCreated
+	isAnswered
+  isAnswerable		
+	voteCount
+	canVote
+	hasVoted
+	user {{
+    {USER}
+  }}
+	repl {{
+					{REPL}
+	}}
+	board {{
+					{BOARD}
+	}}
+	answer {{
+					{COMMENT}
+	}}
+"""
 
-def replit_user():
-    try:
-      owner = os.environ['REPL_OWNER']
-      return owner
-    except:
-      exit("ERROR: No such replit account exists!")
-def replit_avatar(name = None):
-  if (name == None):
-    exit("Please fill out the name parameter!")
-  else:
-    try:
-      e = asyncio.run(assets.replit_avatar_get(f"{name}"))
-      return e
-    except:
-      exit(f"ERROR: Cannot find {name}'s avatar!")
-def replit_bio(name = None):
-  if (name == None):
-    exit("Please fill out the name parameter!")
-  else:
-    try:
-      e = asyncio.run(assets.replit_bio_get(f"{name}"))
-      return e
-    except:
-      exit(f"ERROR: Cannot find {name}'s bio!")
-def replit_name(name = None):
-  if (name == None):
-    exit("Please fill out the name parameter!")
-  else:
-    try:
-      e = asyncio.run(assets.replit_name_get(f"{name}"))
-      return e
-    except:
-      exit(f"ERROR: Cannot find {name}'s name!")
+# lol id go brrrrr
 
-def replit_cycles(name = None):
-    if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
-    else:
-      try:
-        e = requests.get('https://repldata.ch1ck3n.repl.co/cycles/' + name).text
-        return e
-      except:
-        exit("ERROR: Cannot find " + name + "'s cycles!")
-def replit_langs(name = None, extra = None):
-    sun = 0
-    if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
-    else:
-      if (extra == None):
-        pass
+# user {{
+# 					{USER}  
+# 	}}
+
+url = 'https://replit.com/graphql'
+
+# hahae = {'query': 'query UserData { userByUsername(username: "RayhanADev") { id, username, karma, bio } }'}
+
+headers = {
+    'X-Requested-With': 'RayhanADev',
+    'Referrer': 'https://replit.com/graphql'
+}
+
+# res = json.loads(requests.post(url, data=hahae, headers=headers).text)
+# print(res) # res.text is var
+# print(res["data"]["userByUsername"]["karma"])
+
+
+class UserNotFoundError(Exception):
+    pass
+    
+
+class UnluckyFroggyError(Exception):# YES IT IS 
+    pass
+    
+
+
+class JSON:
+  #Put everything here.
+   
+  pass
+
+
+class User:
+    def __init__(self, username):
+        body = {'query': 'query UserData { userByUsername(username: "' + username + '") { '+USER+' } }'}
+        self.res = json.loads(
+            requests.post(url, data=body, headers=headers).text)['data']['userByUsername']
+        if self.res is None:
+            raise UserNotFoundError('User not found')
+        if self.res['username'] == 'UnluckyFroggy':
+            raise UnluckyFroggyError('You are not allowed to put frog in here')
+        self.cycles = self.res['karma']
+        self.bio = self.res['bio']
+        self.username = self.res['username']
+        self.fullname = self.res['fullName']
+        self.banned = self.res['isBannedFromBoards']
+        self.image = self.res["image"]
+        self.roles = self.res["roles"]
+        self.hacker = self.res["isHacker"]
+
+    def posts(self, count=10, parse=False, order="new"):#could we add an order thingy in the function so like they could change the order? so like it could be new, trending, etc. Edit: seems like i just copied the idea from RayhanADev's function from the original lmao - jb
+    # done - ckn
+    #okie, thanks - jb
+        body = {
+              'query': """query User($username: String!, $after: String!, $count: Int!, $order: String!) {
+					                user: userByUsername(username: $username) {
+						                posts(after: $after, order: $order, count: $count) {
+							                items {
+								                """+POST+"""
+							                }
+						                }
+					                }
+				                }
+                """,
+                "variables": json.dumps({
+                  "username": self.res['username'],
+                  "after": "",
+                  "count": count,
+                  "order": order
+                })
+              }
+        if parse:
+          return Assets.parse_json(json.loads(requests.post(url, data=body,headers=headers).text))
+        else:
+          return str(json.loads(requests.post(url, data=body,headers=headers).text))
+
+    def comments(self, count=10, parse=False, order="new"):
+      body = {
+              'query': """query User($username: String!, $after: String!, $count: Int!, $order: String!) {
+					                user: userByUsername(username: $username) {
+						                comments(after: $after, order: $order, count: $count) {
+							                items {
+								                """+COMMENT+"""
+							                }
+						                }
+					                }
+				                }
+                """,
+                "variables": json.dumps({
+                  "username": self.res['username'],
+                  "after": "",
+                  "count": count,
+                  "order": order
+                })
+              } 
+      if parse:
+        return Assets.parse_json(json.loads(requests.post(url, data=body, headers=headers).text))
       else:
-        if (extra == "all"):
-          sun = 1
-      try:
-        link = requests.get('https://replit.com/data/profiles/' +name )
-        data = link.json()
-        #print(data)
-        els = list(data.items())
-        all = els[-1]
-        if ("hacker" in all):
-          all = els[-2]
-        if ("isTeam" in all):
-          all = els[-1]
-        all = list(all)
-        stuff = all[1]
-        stuff = str(stuff)
-        stuff = stuff.replace("'", "")
-        stuff = stuff.replace("[", "")
-        stuff = stuff.replace("]", "")
-        stuff = stuff.replace(" ", "")
-        li = list(stuff.split(","))
-        if (sun == 1):
-          sun = 2
-          return li, sun
-        return (li)
-      except:
-        exit("ERROR: Cannot find " + name + "'s langs!")
+        return str(json.loads(requests.post(url, data=body,headers=headers).text))
 
-#start working here
-def replit_post(name = None):#latest post
-    if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
+    def user(self, parse=False):
+      body = {
+              'query': """query User($username: String!, $after: String!, $count: Int!, $order: String!) {
+					                user: userByUsername(username: $username) {
+						                comments(after: $after, order: $order, count: $count) {
+							                items {
+								                """+USER+"""
+							                }
+						                }
+					                }
+				                }
+                """,
+                "variables": json.dumps({
+                  "username": self.res['username'],
+                  "after": "",
+                })
+              } 
+      if parse:
+        return Assets.parse_json(json.loads(requests.post(url, data=body, headers=headers).text))["data"]["user"]
+      else:
+        return str(json.loads(requests.post(url, data=body,headers=headers).text))
+
+
+class Repl:
+  def __init__(self,replUrl, parse=False, user=False):
+    body = {'query': """
+    query ReplView($url: String!) {
+					repl(url: $url) {
+						  ... on Repl {
+							  """+REPL+"""
+						  }
+					  }
+				  } """, 
+          'variables': json.dumps({
+            "url":  replUrl
+          })}
+    self.res = json.loads(requests.post(url, data=body,headers=headers).text)
+    if (user == True):
+      self.res["data"]["repl"]["user"] = User(self.res["data"]["repl"]["user"]["username"])
+    elif user == False:
+      self.res["data"]["repl"] = self.res["data"]["repl"]
     else:
-      #user = os.environ["REPL_OWNER"]
-      try:
-        post = requests.get("https://replit.com/@"+ name +"?tab=posts")#name
-        soup = BeautifulSoup(post.content, 'html.parser')
-        html1 = soup.find("div", {"class":"jsx-2329710370 board-post-list-item-post-title"}).get_text()
-        return html1
-        #b = a.replace('</div>','')
-        #return b
-      except:
-        exit("ERROR: Cannot find "+ name+"'s hottest post!")
-  
-def replit_posts(name = None):#all posts
-    if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
-    else:
-      try:
-        post = requests.get("https://replit.com/@"+ name +"?tab=posts")#name
-        soup = BeautifulSoup(post.content, 'html.parser')
-        html1 = soup.find_all("div", {"class":"jsx-2329710370 board-post-list-item-post-title"})#.get_text()
-        all_text = []
-        for i in html1:
-          all_text.append(i.get_text())
-        return '\n'.join(all_text)
-        
-      except:
-        exit("ERROR: Cannot find "+ name+"'s posts!")
+      pass 
+    if parse == True:
+      self.res = json.dumps(json.loads(requests.post(url, data=body,headers=headers).text), sort_keys=True, indent=2)
 
-def replit_posts_len(name = None):#NEW FUNCTION
-  if name == None:
-    exit("ERROR: You didn't fill out the name parameter!")
-  else:
-    try:
-      post = requests.get("https://replit.com/@"+ name +"?tab=posts")#name
-      soup = BeautifulSoup(post.content, 'html.parser')
-      html1 = soup.find_all("div", {"class":"jsx-2329710370 board-post-list-item-post-title"})#.get_text()
-      num = 0
-      for i in html1:
-        num+=1
-      return str(num)
 
-    except:
-      exit("ERROR: Cannot find "+name+"'s post length!")
-  
-def replit_comment(name = None):
-  if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
-  else:
-      try:
-        post = requests.get("https://replit.com/@" + name + "?tab=comments")
-        soup = BeautifulSoup(post.content, 'html.parser')
-        for data in soup.find("p"):
-          return (data.get_text())
-          break # keep this here so it prints once
-      except:
-        exit("ERROR: Cannot find "+ name+"'s hottest comment!") 
-  
-def replit_comments(name = None):
-    if name == None:
-      exit("ERROR: You didn't fill out the name parameter!")
-    else:
-      try:
-        post = requests.get("https://replit.com/@" + name + "?tab=comments")
-        soup = BeautifulSoup(post.content, 'html.parser')
-        all_text = []
-        for data in soup.find_all("p"):
-          all_text.append(data.get_text())
-        return '\n'.join(all_text)
-      except:
-        exit("ERROR: Cannot find "+name+"'s comments!")
-
-def replit_comments_len(name = None):#NEW FUNCTION
-  if name == None:
-    exit("ERROR: You didn't fill out the name parameter!")
-  else:
-    try:
-      post = requests.get("https://replit.com/@" + name + "?tab=comments")
-      soup = BeautifulSoup(post.content, 'html.parser')
-      num=0
-      for data in soup.find_all("p"):
-        num+=1
-      return str(num)
-    except:
-      exit("ERROR: Cannot find "+name+"'s comments length!")
-
-class talk():
-  def all_posts():#all posts, prob will not work lol 
-  # dumb idea, will break
-    pass
-  
-  def top_post():# top post 
-  # this one is okey
-    pass
-  
-  def top_posts():# few of the top posts
-  # this ones aight
+  def repl_comments(self, count=10, parse=False):
     pass
 
-  def new_post():# newest post
-  # this ones dumb but okey
-    pass
-  
-  def new_posts():# newest posts
-  # dumb but okey
+class Talk:#repl talk info
+  def __init__(self,):
     pass
 
-  def leaderboard():# leaderboard info, idk yet
-  # idk whut this one is
-    try:
-      e = asyncio.run(assets.replit_leaderboard_get())
-      e = str(e)
-      e = e.replace('<', '')
-      e = e.replace('>', '')
-      e = e.replace('[', '')
-      e = e.replace(']', '')
-      e = list(e.split(', '))
-      # e = '\n'.join(e)
-      return e
-    except:
-      exit("ERROR: Cannot load leaderboard!")
 
-repltalk = talk.leaderboard()
-os.system("clear")
-for i in range(10):
-  print(repltalk[i])
+class Assets:
+  def parse_json(tjson):
+    return json.dumps(tjson, sort_keys=True, indent=2) # 4 is just too much
+    
+
+print(User("JBloves27").comments(parse=True))
