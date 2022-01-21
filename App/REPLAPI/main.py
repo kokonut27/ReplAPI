@@ -281,7 +281,7 @@ class User:
 
 class Repl:
   def __init__(self,replUrl, parse=False, user=False):
-    body = {'query': """
+      body = {'query': """
     query ReplView($url: String!) {
 					repl(url: $url) {
 						  ... on Repl {
@@ -289,18 +289,16 @@ class Repl:
 						  }
 					  }
 				  } """, 
-          'variables': json.dumps({
-            "url":  replUrl
-          })}
-    self.res = json.loads(requests.post(url, data=body,headers=headers).text)
-    if (user == True):
-      self.res["data"]["repl"]["user"] = User(self.res["data"]["repl"]["user"]["username"])
-    elif user == False:
-      self.res["data"]["repl"] = self.res["data"]["repl"]
-    else:
-      pass 
-    if parse == True:
-      self.res = json.dumps(json.loads(requests.post(url, data=body,headers=headers).text), sort_keys=True, indent=2)
+            'variables': json.dumps({
+              "url":  replUrl
+            })}
+      self.res = json.loads(requests.post(url, data=body,headers=headers).text)
+      if (user == True):
+          self.res["data"]["repl"]["user"] = User(self.res["data"]["repl"]["user"]["username"])
+      elif user == False:
+        self.res["data"]["repl"] = self.res["data"]["repl"]
+      if parse == True:
+        self.res = json.dumps(json.loads(requests.post(url, data=body,headers=headers).text), sort_keys=True, indent=2)
 
 
   def repl_comments(self, count=10, parse=False):
